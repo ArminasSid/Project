@@ -18,6 +18,7 @@ public class GroupWork {
         
         // SAMPLE TEXT FOR COMMIT
         int a = 0;
+        int b = a +1;
         // TODO code application logic here
     }
     
