@@ -17,6 +17,7 @@ public class GroupWork {
     public static void main(String[] args) {
         
         // SAMPLE TEXT FOR COMMIT
+        int a = 0;
         // TODO code application logic here
     }
     
