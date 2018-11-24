@@ -5,20 +5,20 @@
  */
 package groupwork;
 
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Iterator;
+import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
  * @author Juliu
  */
 public class StartingData {
+
     private double FixedConstruction;
     private double VariableConstruction;
     private double FixedMananagement;
@@ -27,24 +27,68 @@ public class StartingData {
     private double RailwayDelivery;
     private double TruckEmission;
     private double RailwayEmission;
-    
 
-
-    public StartingData()
-    {
+    public StartingData() {
         try {
             ReadData();
         } catch (IOException ex) {
             Logger.getLogger(StartingData.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     private void ReadData() throws IOException {
-    
-        File excelFile = new File("Data for calculations.xlsx");
-        FileInputStream fis = new FileInputStream(excelFile);
-        HSSFSheet
+        InputStream ExcelFileToRead = new FileInputStream("D:/new.xlsx");
+        XSSFWorkbook wb = new XSSFWorkbook(ExcelFileToRead);
+        XSSFSheet sheet = wb.getSheetAt(0);
+        String temp = sheet.getRow(1).getCell(2).getRawValue();
+        FixedConstruction = Double.parseDouble(temp);
+        temp = sheet.getRow(2).getCell(2).getRawValue();
+        VariableConstruction = Double.parseDouble(temp);
+        temp = sheet.getRow(3).getCell(2).getRawValue();
+        FixedMananagement = Double.parseDouble(temp);
+        temp = sheet.getRow(4).getCell(2).getRawValue();
+        VariableManagement = Double.parseDouble(temp);
+        temp = sheet.getRow(5).getCell(2).getRawValue();
+        TruckDelivery = Double.parseDouble(temp);
+        temp = sheet.getRow(6).getCell(2).getRawValue();
+        RailwayDelivery = Double.parseDouble(temp);
+        temp = sheet.getRow(7).getCell(2).getRawValue();
+        TruckEmission = Double.parseDouble(temp);
+        temp = sheet.getRow(8).getCell(2).getRawValue();
+        RailwayEmission = Double.parseDouble(temp);
+    }
+    public double getFixedConstruction()
+    {
+        return FixedConstruction;
+    }
+    public double getVariableConstruction()
+    {
+        return VariableConstruction;
+    }
+    public double getFixedMananagement()
+    {
+        return FixedMananagement;
+    }
+    public double getVariableManagement()
+    {
+        return VariableManagement;
+    }
+    public double getTruckDelivery()
+    {
+        return TruckDelivery;
+    }
+    public double getRailwayDelivery()
+    {
+        return RailwayDelivery;
+    }
+    public double getTruckEmission()
+    {
+        return TruckEmission;
+    }
+    public double getRailwayEmission()
+    {
+        return RailwayEmission;
     }
     
+
 }
