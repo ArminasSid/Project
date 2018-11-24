@@ -19,14 +19,14 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class StartingData {
 
-    private double FixedConstruction;
-    private double VariableConstruction;
-    private double FixedMananagement;
-    private double VariableManagement;
-    private double TruckDelivery;
-    private double RailwayDelivery;
-    private double TruckEmission;
-    private double RailwayEmission;
+    private double FixedConstruction; // Fixed warehouse construction costs (EUR)
+    private double VariableConstruction; // Variable warehouse construction costs (EUR / ton)
+    private double FixedMananagement; // Fixed warehouse management costs (EUR / month)
+    private double VariableManagement; // Variable warehouse managements (EUR / ton / day)
+    private double TruckDelivery; // Truck delivery costs (EUR / ton / km)
+    private double RailwayDelivery; // Railway delivery costs (EUR / ton / km)
+    private double TruckEmission; // Truck emission level (CO2 / km)
+    private double RailwayEmission; // Railway emission level (CO2 / km)
 
     public StartingData() {
         try {
