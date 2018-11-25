@@ -21,7 +21,8 @@ public class GroupWork {
      */
     public static void main(String[] args) throws FileNotFoundException, IOException, InvalidFormatException {
         StartingData a = new StartingData(); 
-        System.out.println(a.getFixedConstruction());
+        FlowData b = new FlowData();
+       // System.out.println(a.getFixedConstruction());
       //  DistanceData b = new DistanceData();
     }
 }

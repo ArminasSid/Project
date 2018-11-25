@@ -17,22 +17,22 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  *
  * @author Juliu
  */
-public class DistanceData {
-
-    public DistanceData() throws FileNotFoundException, IOException, InvalidFormatException {
-        readDistanceData();
+public class FlowData {
+    public FlowData() throws IOException, FileNotFoundException, InvalidFormatException
+    {
+        readFlowData();
     }
-
-    private void readDistanceData() throws FileNotFoundException, IOException, InvalidFormatException {
-        OPCPackage pkg = OPCPackage.open(new File("D:/Distances.xlsx"));
+    private void readFlowData() throws FileNotFoundException, IOException, InvalidFormatException {
+        OPCPackage pkg = OPCPackage.open(new File("D:/Flows.xlsx"));
         XSSFWorkbook wb = new XSSFWorkbook(pkg);
         XSSFSheet sheet = wb.getSheetAt(0);
        // pkg.close();
-        Distance temp = new Distance();
+        Flow temp = new Flow();
         for (int i = 1; i < sheet.getLastRowNum()+1; i++) {
-          temp.Set(sheet.getRow(i).getCell(1).getStringCellValue(),sheet.getRow(i).getCell(2).getStringCellValue(),
+          temp.Set(sheet.getRow(i).getCell(0).getStringCellValue(),sheet.getRow(i).getCell(1).getStringCellValue(),sheet.getRow(i).getCell(2).getStringCellValue(),
                     sheet.getRow(i).getCell(3).getNumericCellValue(),sheet.getRow(i).getCell(4).getNumericCellValue());
+         System.out.println(temp.toString());
         }
     }
-
+    
 }
